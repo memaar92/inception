@@ -12,4 +12,55 @@
 
 // you can start a container from an image ? (What does that exactly mean?)
 
-//
+// build a container image from Dockerfile --> docker build
+// create a container from an image --> docker create <image_name>
+// creates and runs a container based on the given image --> docker run <image_name>
+
+// Docker images are read-only templates that contain instructions for creating a container. 
+// A Docker image is a snapshot or blueprint of the libraries and dependencies required inside a container 
+// for an application to run.
+
+// A Docker container is a runtime environment with all the necessary components—like code, 
+// dependencies, and libraries—needed to run the application code without using host machine dependencies.
+// This container runtime runs on the engine on a server, machine, or cloud instance. The engine runs 
+// multiple containers depending on the underlying resources available.
+
+// A Docker image, or container image, is a standalone, executable file used to create a container. 
+// This container image contains all the libraries, dependencies, and files that the container needs 
+// to run. A Docker image is shareable and portable, so you can deploy the same image in multiple 
+// locations at once—much like a software binary file. It is the template loaded onto the 
+// container to run it, like a set of instructions.
+// You store images for sharing and reuse, but you create and destroy containers over an application’s lifecycle. 
+
+// docker ps -a --> list all containers
+// docker start <container_id> --> runs a container
+// docker stop <container_id> --> stops a container
+
+//  only one process (containers included) can listen to a specific port
+
+// This is quite common in CI pipelines, where the pipeline will create the image and push it to a registry and then 
+// the production environment can use the latest version of the image.
+
+// Volumes can be used to make data persistent. They provide the ability to connect specific 
+// filesystem paths of the container back to the host machine. 
+// If a directory in the container is mounted, changes in that directory are also seen on the host machine. 
+// If we mount that same directory across container restarts, we'd see the same files.
+
+
+// mounting:: creating a volume and attaching (often called "mounting") it to the directory the data is stored in
+
+// create a volume (in this case todo-db) -> docker volume create todo-db
+// then start the container with the -v flag
+
+// use bind mounts to control exact mountpoints on the host when using volumes
+// this can also be used to mount source code into a container for development etc.
+// For Node-based applications, nodemon is a great tool to watch for file changes and then restart the application. 
+// There are equivalent tools in most other languages and frameworks.
+
+// With Docker Compose, we can share our application stacks in a much easier way and let others spin them up 
+// with a single (and simple) command!
+// developed to help define and share multi-container applications. With Compose, we can create a YAML file to
+// define the services and with a single command, can spin everything up or tear it all down. 
+
+
+// By default, Docker Compose automatically creates a network specifically for the application stack
