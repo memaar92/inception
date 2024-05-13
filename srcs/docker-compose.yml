@@ -1,0 +1,15 @@
+// Simply put, a container is simply another process on your machine that has been isolated 
+// from all other processes on the host machine. 
+
+// When running a container, it uses an isolated filesystem. 
+//This custom filesystem is provided by a container image. 
+//Since the image contains the container's filesystem, it must contain 
+//everything needed to run an application - all dependencies, configuration, scripts, binaries, etc. 
+
+// Dockerfiles are used to build applications (inside containers?)
+
+// A Dockerfile is simply a text-based script of instructions that is used to create a container image
+
+// you can start a container from an image ? (What does that exactly mean?)
+
+//
