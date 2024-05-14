@@ -24,6 +24,7 @@
 // dependencies, and libraries—needed to run the application code without using host machine dependencies.
 // This container runtime runs on the engine on a server, machine, or cloud instance. The engine runs 
 // multiple containers depending on the underlying resources available.
+// Running instance of an image
 
 // A Docker image, or container image, is a standalone, executable file used to create a container. 
 // This container image contains all the libraries, dependencies, and files that the container needs 
