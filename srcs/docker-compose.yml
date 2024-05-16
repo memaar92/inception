@@ -1,4 +1,3 @@
-version: "3.7"
 services:
   nginx:
     build:
@@ -6,3 +5,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8000:80"
+    #volumes:
+    #networks
+
+#networks:
