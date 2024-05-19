@@ -13,8 +13,7 @@ services:
       context: ./requirements/mariadb
       dockerfile: Dockerfile
     #ports:
-    #environment: OR use env_file: .env
-      # provide environment variables here --> could probably also set in Dockerfile using ENV?
+    #environment: use .env to populate environment variables
       #MYSQL_ROOT_PASSWORD: root
       #MYSQL_DATABASE: wordpress
       #MYSQL_USER: wordpress
