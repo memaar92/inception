@@ -8,4 +8,19 @@ services:
     #volumes:
     #networks
 
+  mariadb:
+    build:
+      context: ./requirements/mariadb
+      dockerfile: Dockerfile
+    #ports:
+    #environment: OR use env_file: .env
+      # provide environment variables here --> could probably also set in Dockerfile using ENV?
+      #MYSQL_ROOT_PASSWORD: root
+      #MYSQL_DATABASE: wordpress
+      #MYSQL_USER: wordpress
+      #MYSQL_PASSWORD: wordpress
+    #volumes: specify volume --> how/where to create volume? in VM? script?
+      
+    #networks:
+
 #networks:
