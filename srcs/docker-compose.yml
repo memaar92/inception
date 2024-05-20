@@ -12,7 +12,8 @@ services:
     build:
       context: ./requirements/mariadb
       dockerfile: Dockerfile
-    #ports:
+    ports:
+      - "3306:3306"
     #environment: use .env to populate environment variables
       #MYSQL_ROOT_PASSWORD: root
       #MYSQL_DATABASE: wordpress

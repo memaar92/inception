@@ -4,6 +4,8 @@ FROM debian:bookworm
 RUN apt update && apt upgrade && apt install -y mariadb-server
 
 # Copy config file into the correct location in the container
+COPY /conf/custom.cnf /etc/mysql/mariadb.conf.d/custom.cnf
+
 
 # run script to create database and user
 # have to start and stop mariadb there?
@@ -12,4 +14,4 @@ RUN apt update && apt upgrade && apt install -y mariadb-server
 EXPOSE 3306
 
 # run with config file as argument?
-CMD ["mysql_safe"]
+CMD ["mysqld_safe"]

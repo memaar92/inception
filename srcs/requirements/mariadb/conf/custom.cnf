@@ -1,0 +1,11 @@
+#just testing
+[mysqld]
+max_connections = 300
+
+#what needs to be specified here?
+#bind address?
+#init file?
+#user var --> root?
+#datadir?
+#tmpdir?
+
