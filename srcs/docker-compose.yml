@@ -19,7 +19,9 @@ services:
       #MYSQL_DATABASE: wordpress
       #MYSQL_USER: wordpress
       #MYSQL_PASSWORD: wordpress
-    #volumes: specify volume --> how/where to create volume? in VM? script?
+    #specify volume --> how/where to create volume? in VM? script?
+    #volumes:
+  
       
     #networks:
 
