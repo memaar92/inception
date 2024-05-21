@@ -1,5 +1,11 @@
 #!/bin/bash
 
+
+#create database if not existing
+#create user if not existing
+#grant all privileges to user on database
+#flush privileges
+
 SQL_STATEMENTS="
     CREATE DATABASE IF NOT EXISTS fruitdb;
     USE fruitdb;
