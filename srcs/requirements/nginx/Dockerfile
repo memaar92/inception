@@ -4,7 +4,8 @@ FROM debian:bookworm
 # Install nginx // get upgrade?
 RUN apt update && apt upgrade && apt install -y nginx
 
-
+# Copy nginx config file
+COPY /conf/test.conf /etc/nginx/conf.d
 
 # either add cerificates here or mount as volume in docker-compose or as .env?
 

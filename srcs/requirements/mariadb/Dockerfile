@@ -10,7 +10,7 @@ COPY /conf/custom.cnf /etc/mysql/mariadb.conf.d/custom.cnf
 COPY /tools/init_mdb.sh /usr/local/bin/init_mdb.sh
 
 # Default MariaDB port -> necessary?
-EXPOSE 3306
+#EXPOSE 3306
 
 # Run script to create database and user
 ENTRYPOINT ["init_mdb.sh"]

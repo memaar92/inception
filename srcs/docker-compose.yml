@@ -1,28 +1,66 @@
 services:
-  nginx:
-    build:
-      context: ./requirements/nginx
-      dockerfile: Dockerfile
-    ports:
-      - "8000:80"
-    #volumes:
-    #networks
-
   mariadb:
     build:
       context: ./requirements/mariadb
       dockerfile: Dockerfile
+    container_name: mariadb
     ports:
       - "3306:3306"
-    #environment: use .env to populate environment variables
+    #necessary?
+    env_file: .env
+    #use .env to populate environment variables
+    environment: 
+      - MTSQL_DATABASE=wordpress
       #MYSQL_ROOT_PASSWORD: root
       #MYSQL_DATABASE: wordpress
       #MYSQL_USER: wordpress
       #MYSQL_PASSWORD: wordpress
     #specify volume --> how/where to create volume? in VM? script?
-    #volumes:
+    volumes:
+      - mariadb:/var/lib/mysql
+    networks:
+      - inception
+    restart: always
   
-      
-    #networks:
+  wordpress:
+    depends_on:
+      - mariadb
+    image: wordpress:5.5.1-php7.4-fpm
+    #build:
+    #  context: ./requirements/wordpress
+    #  dockerfile: Dockerfile
+    container_name: wordpress
+    env_file: .env
+    environment:
+      - WORDPRESS_DB_HOST=mariadb:3306
+      - WORDPRESS_DB_USER=$MYSQL_USER
+      - WORDPRESS_DB_PASSWORD=$MYSQL_PASSWORD
+      - WORDPRESS_DB_NAME=wordpress
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - inception
+    restart: always
 
-#networks:
+  nginx:
+    depends_on:
+      - wordpress
+    build:
+      context: ./requirements/nginx
+      dockerfile: Dockerfile
+    container_name: nginx
+    ports:
+      - "8000:80"
+    #This will mount the WordPress application code to the /var/www/html directory, the directory set as the root in the Nginx server block
+    volumes:
+      - wordpress:/var/www/html
+    networks:
+      - inception
+
+volumes:
+  mariadb:
+  wordpress:
+
+networks:
+  inception:
+    driver: bridge

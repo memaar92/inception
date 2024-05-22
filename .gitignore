@@ -28,5 +28,8 @@ secrets/
 # Ignore .DS_Store file
 .DS_Store
 
+# Ignore .env file
+.env
+
 
 
