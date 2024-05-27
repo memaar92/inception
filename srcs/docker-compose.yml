@@ -10,7 +10,7 @@ services:
     env_file: .env
     #use .env to populate environment variables
     environment: 
-      - MTSQL_DATABASE=wordpress
+      - MYSQL_DATABASE=wordpress
       #MYSQL_ROOT_PASSWORD: root
       #MYSQL_DATABASE: wordpress
       #MYSQL_USER: wordpress
