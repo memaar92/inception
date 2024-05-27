@@ -1,24 +1,23 @@
-Name = inception
+COMPOSE_FILE = ./srcs/docker-compose.yaml
 
-SRCS_DIR = ./srcs
-
-.PHONY: start stop clean
+.PHONY: start build stop clean fclean re
 
 start:
-	cd $(SRCS_DIR) && docker-compose down
-	cd $(SRCS_DIR) && docker-compose up -d
+	docker compose -f $(COMPOSE_FILE) up -d
+
+#for building the images of the services defined in the specified Docker Compose file
+build:
+	docker compose -f $(COMPOSE_FILE) build
 
 stop:
-	cd $(SRCS_DIR) && docker-compose down
+	docker compose -f $(COMPOSE_FILE) down
 
-# Make sure to only remove images and containers we really want to remove -> via project name?
-# Also remove network?
+
 clean:
-	@container_ids=$$(cd $(SRCS_DIR) && docker ps -a | awk 'NR > 1 { print $$1 }'); \
-	if [ -n "$$container_ids" ]; then \
-		echo "$$container_ids" | xargs docker rm -f; \
-	fi
-	@image_ids=$$(cd $(SRCS_DIR) && docker images -a | awk 'NR > 1 { print $$3 }'); \
-	if [ -n "$$image_ids" ]; then \
-		echo "$$image_ids" | xargs docker rmi -f; \
-	fi
+	docker compose -f $(COMPOSE_FILE) down -v
+
+#removes all Docker resources defined in the specified Docker Compose file and additionally removes local Docker images that were used by the services
+fclean:
+	docker compose -f $(COMPOSE_FILE) down --rmi local -v
+
+re: fclean start
