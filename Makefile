@@ -1,4 +1,4 @@
-COMPOSE_FILE = ./srcs/docker-compose.yaml
+COMPOSE_FILE = ./srcs/docker-compose.yml
 
 .PHONY: all start build stop clean fclean prune re
 

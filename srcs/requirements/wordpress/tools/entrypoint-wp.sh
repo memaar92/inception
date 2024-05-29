@@ -2,7 +2,7 @@
 mkdir run/php
 cd /var/www/html
 
-if [ -f ./wordpress/wp-config.php ]
+if [ -f ./wp-config.php ]
 then
 	echo "wordpress already downloaded"
 else
