@@ -5,7 +5,9 @@ FROM debian:bookworm
 RUN apt update && apt upgrade && apt install -y nginx
 
 # Copy nginx config file
-COPY /conf/nginx_cust.conf /etc/nginx/conf.d/nginx_cust.conf
+RUN rm /etc/nginx/nginx.conf
+
+COPY /conf/nginx.conf /etc/nginx/nginx.conf
 #COPY /conf/nginx_cust.conf /etc/nginx/sites-enabled/nginx_cust
 #COPY /conf/nginx.conf /etc/nginx/nginx.conf
 

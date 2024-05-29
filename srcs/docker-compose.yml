@@ -11,10 +11,9 @@ services:
     #use .env to populate environment variables
     environment: 
       - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=$MYSQL_USER
+      - MYSQL_PASSWORD=$MYSQL_PASSWORD
       #MYSQL_ROOT_PASSWORD: root
-      #MYSQL_DATABASE: wordpress
-      #MYSQL_USER: wordpress
-      #MYSQL_PASSWORD: wordpress
     #specify volume --> how/where to create volume? in VM? script?
     volumes:
       - mariadb:/var/lib/mysql
