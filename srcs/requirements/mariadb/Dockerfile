@@ -1,7 +1,7 @@
 FROM debian:bookworm
 
 # Install MariaDB
-RUN apt update && apt upgrade && apt install -y mariadb-server
+RUN apt update && apt install -y mariadb-server
 
 # Copy config file into the correct location in the container
 COPY /conf/custom.cnf /etc/mysql/mariadb.conf.d/custom.cnf

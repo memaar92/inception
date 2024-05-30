@@ -1,7 +1,6 @@
 FROM debian:bookworm
 
-RUN apt update && apt upgrade && apt install -y \
-    wget \
+RUN apt update && apt install -y \
     curl \
     php8.2 \
     php8.2-cgi \

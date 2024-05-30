@@ -2,7 +2,7 @@
 FROM debian:bookworm
 
 # Install nginx // get upgrade?
-RUN apt update && apt upgrade && apt install -y nginx
+RUN apt update && apt install -y nginx
 
 # Copy nginx config file
 RUN rm /etc/nginx/nginx.conf
