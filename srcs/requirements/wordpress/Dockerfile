@@ -11,7 +11,6 @@ RUN apt update && apt install -y \
     php8.2-cli \
     php8.2-mbstring
 
-# configuration of default pool for php-fpm
 COPY ./conf/www.conf /etc/php/8.2/fpm/pool.d/
 
 COPY /tools/entrypoint-wp.sh /usr/local/bin/
