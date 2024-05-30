@@ -14,7 +14,7 @@ else
 	wp core config --dbname=$WORDPRESS_DB_NAME --dbuser=$WORDPRESS_DB_USER --dbpass=$WORDPRESS_DB_PASSWORD --dbhost=$WORDPRESS_DB_HOST --allow-root
 	wp core install --allow-root --url=$WORDPRESS_URL --title="Test" --admin_user=$WORDPRESS_ADMIN_USER --admin_password=$WORDPRESS_ADMIN_PASS --admin_email=$WORDPRESS_ADMIN_EMAIL
 	wp user create test --allow-root --role=editor --user_pass=$WORDPRESS_DB_PASSWORD
-	wp theme install twentyseventeen --activate --allow-root
+	wp theme install twentytwentyfour --activate --allow-root
 
 	#Download wordpress
 	#wget https://wordpress.org/latest.tar.gz
