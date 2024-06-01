@@ -11,9 +11,9 @@ else
 	mv wp-cli.phar /usr/local/bin/wp
 
 	wp core download --path=/var/www/html --allow-root
-	wp config create --dbname=$WORDPRESS_DB_NAME --dbuser=$WORDPRESS_DB_USER --dbpass=$WORDPRESS_DB_PASSWORD --dbhost=$WORDPRESS_DB_HOST --allow-root
-	wp core install --allow-root --url=$WORDPRESS_URL --title="Test" --admin_user=$WORDPRESS_ADMIN_USER --admin_password=$WORDPRESS_ADMIN_PASS --admin_email=$WORDPRESS_ADMIN_EMAIL
-	wp user create bob bob@user2.com --role=author --porcelain --allow-root
+	wp config create --dbname=$DB_NAME --dbuser=$DB_USER --dbpass=$DB_PASS --dbhost=$DB_HOST --allow-root
+	wp core install --url=$WP_URL --title="Kobold" --admin_user=$WP_ADMIN_USER --admin_password=$WP_ADMIN_PASS --admin_email=$WP_ADMIN_EMAIL --allow-root
+	wp user create bobby bob@mcbob.com --role=author --porcelain --allow-root
 	wp theme install twentytwentyfour --activate --allow-root
 fi
 #chmod -R 777 /var/www/html

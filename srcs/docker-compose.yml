@@ -4,17 +4,16 @@ services:
       context: ./requirements/mariadb
       dockerfile: Dockerfile
     container_name: mariadb
+    #necessary?
     ports:
       - "3306:3306"
     #necessary?
     env_file: .env
-    #use .env to populate environment variables
-    environment: 
-      - MYSQL_DATABASE=wordpress
-      - MYSQL_USER=$MYSQL_USER
-      - MYSQL_PASSWORD=$MYSQL_PASSWORD
-      #MYSQL_ROOT_PASSWORD: root
-    #specify volume --> how/where to create volume? in VM? script?
+    environment:
+      - WP_HOST=wordpress:9000
+      - MYSQL_DB=$MYSQL_DATABASE
+      - MYSQL_USER=$MYSQL_USERNAME
+      - MYSQL_PASS=$MYSQL_PASSWORD
     volumes:
       - mariadb:/var/lib/mysql
     networks:
@@ -31,14 +30,14 @@ services:
     container_name: wordpress
     env_file: .env
     environment:
-      - WORDPRESS_DB_HOST=mariadb:3306
-      - WORDPRESS_DB_USER=$MYSQL_USER
-      - WORDPRESS_DB_PASSWORD=$MYSQL_PASSWORD
-      - WORDPRESS_DB_NAME=wordpress
-      - WORDPRESS_URL=localhost:8000
-      - WORDPRESS_ADMIN_USER=$WP_ADMIN_USER
-      - WORDPRESS_ADMIN_PASS=$WP_ADMIN_PASS
-      - WORDPRESS_ADMIN_EMAIL=$WP_ADMIN_EMAIL
+      - DB_HOST=mariadb:3306
+      - DB_NAME=$MYSQL_DATABASE
+      - DB_USER=$MYSQL_USERNAME
+      - DB_PASS=$MYSQL_PASSWORD
+      - WP_URL=$HOST
+      - WP_ADMIN_USER=$WORDPRESS_ADMIN_USER
+      - WP_ADMIN_PASS=$WORDPRESS_ADMIN_PASS
+      - WP_ADMIN_EMAIL=$WORDPRESS_ADMIN_EMAIL
     volumes:
       - wordpress:/var/www/html
     networks:
