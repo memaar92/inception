@@ -16,5 +16,5 @@ else
 	wp user create bobby bob@mcbob.com --role=author --porcelain --allow-root
 	wp theme install twentytwentyfour --activate --allow-root
 fi
-#chmod -R 777 /var/www/html
+chmod -R 777 /var/www/html
 exec "$@"

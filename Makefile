@@ -16,12 +16,16 @@ stop:
 
 clean:
 	docker compose -f $(COMPOSE_FILE) down -v
+	rm -rf ~/data/mariadb/*
+	rm -rf ~/data/wordpress/*
 
 #removes all Docker resources defined in the specified Docker Compose file and additionally removes local Docker images that were used by the services
 fclean:
 	docker compose -f $(COMPOSE_FILE) down --rmi local -v
+	rm -rf ~/data/mariadb/*
+	rm -rf ~/data/wordpress/*
 
-# Remove all unused containers, networks, images and volumes --> delete folders/files?
+# Remove all unused containers, networks, images and volumes
 prune:
 	docker system prune --all --force --volumes
 
