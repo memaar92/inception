@@ -60,6 +60,7 @@ services:
       - inception
     restart: always
 
+# named volumes that map back to a local directory
 volumes:
   mariadb:
     driver: local
