@@ -31,5 +31,8 @@ secrets/
 # Ignore .env file
 .env
 
+# Ignore certificate files
+srcs/requirements/nginx/tools/ssl/*.crt
+srcs/requirements/nginx/tools/ssl/*.key
 
 

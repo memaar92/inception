@@ -9,6 +9,7 @@ COPY /conf/nginx_inception.conf /etc/nginx/conf.d/
 
 # Expose ports
 EXPOSE 80
+EXPOSE 443
 
 # Start nginx / why run it in the foreground?
 CMD ["nginx", "-g", "daemon off;"]

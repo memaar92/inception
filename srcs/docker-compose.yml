@@ -53,9 +53,10 @@ services:
     container_name: nginx
     ports:
       - "8000:80"
-    #This will mount the WordPress application code to the /var/www/html directory, the directory set as the root in the Nginx server block
+      - "443:443"
     volumes:
       - wordpress:/var/www/html
+      - ./requirements/nginx/tools/ssl:/etc/nginx/ssl:ro
     networks:
       - inception
     restart: always
