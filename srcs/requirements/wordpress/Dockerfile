@@ -2,16 +2,16 @@ FROM debian:bullseye
 
 RUN apt update && apt install -y \
     curl \
-    php8.2 \
-    php8.2-cgi \
-    php8.2-mysql \
-    php8.2-fpm \
-    php8.2-pdo \
-    php8.2-gd \
-    php8.2-cli \
-    php8.2-mbstring
+    php7.4 \
+    php7.4-cgi \
+    php7.4-mysql \
+    php7.4-fpm \
+    php7.4-pdo \
+    php7.4-gd \
+    php7.4-cli \
+    php7.4-mbstring
 
-COPY ./conf/www.conf /etc/php/8.2/fpm/pool.d/
+COPY ./conf/www.conf /etc/php/7.4/fpm/pool.d/
 
 COPY /tools/entrypoint-wp.sh /usr/local/bin/
 
@@ -19,4 +19,4 @@ ENTRYPOINT ["entrypoint-wp.sh"]
 
 EXPOSE 9000
 
-CMD ["/usr/sbin/php-fpm8.2", "-F"]
+CMD ["/usr/sbin/php-fpm7.4", "-F"]

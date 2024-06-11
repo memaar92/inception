@@ -8,12 +8,8 @@ services:
     ports:
       - "3306:3306"
     #necessary?
-    env_file: .env
-    environment:
-      - WP_HOST=wordpress:9000
-      - MYSQL_DB=$MYSQL_DATABASE
-      - MYSQL_USER=$MYSQL_USERNAME
-      - MYSQL_PASS=$MYSQL_PASSWORD
+    env_file:
+      - .env
     volumes:
       - mariadb:/var/lib/mysql
     networks:
@@ -28,16 +24,8 @@ services:
       context: ./requirements/wordpress
       dockerfile: Dockerfile
     container_name: wordpress
-    env_file: .env
-    environment:
-      - DB_HOST=mariadb:3306
-      - DB_NAME=$MYSQL_DATABASE
-      - DB_USER=$MYSQL_USERNAME
-      - DB_PASS=$MYSQL_PASSWORD
-      - WP_URL=$HOST
-      - WP_ADMIN_USER=$WORDPRESS_ADMIN_USER
-      - WP_ADMIN_PASS=$WORDPRESS_ADMIN_PASS
-      - WP_ADMIN_EMAIL=$WORDPRESS_ADMIN_EMAIL
+    env_file: 
+      - .env
     volumes:
       - wordpress:/var/www/html
     networks:
