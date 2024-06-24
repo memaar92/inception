@@ -13,5 +13,5 @@ EXPOSE 3306
 # Run script to create database and user
 ENTRYPOINT ["entrypoint-mdb.sh"]
 
-# Provide arguments to the entrypoint
+# Provide arguments to the entrypoint // issues with pid 1?
 CMD ["mysqld_safe"]

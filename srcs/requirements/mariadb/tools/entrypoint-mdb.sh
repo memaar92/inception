@@ -11,3 +11,4 @@ mariadb -e "FLUSH PRIVILEGES;"
 /etc/init.d/mariadb stop
 
 exec "$@"
+#exec mysqld
