@@ -1,17 +1,3 @@
 [mysqld]
 bind-address = 0.0.0.0
 user = mysql
-
-#user = root
-#datadir = /var/lib/mysql
-
-#just testing
-#max_connections = 300
-
-#what needs to be specified here?
-#bind address? --> set to 0.0.0.0 so that the mariadb server is listening to all network intrefaces including the Docker-created network interfaces
-#init file?
-#user var --> root?
-#datadir?
-#tmpdir?
-

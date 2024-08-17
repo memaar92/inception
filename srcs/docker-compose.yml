@@ -10,7 +10,6 @@ services:
       - mariadb:/var/lib/mysql
     networks:
       - inception
-    # or unless-stopped?
     restart: always
   
   wordpress:
@@ -45,7 +44,6 @@ services:
       - inception
     restart: always
 
-# named volumes that map back to a local directory
 volumes:
   mariadb:
     driver: local

@@ -7,7 +7,6 @@ all: start
 start:
 	docker compose -f $(COMPOSE_FILE) up -d
 
-#for building the images of the services defined in the specified Docker Compose file
 build:
 	docker compose -f $(COMPOSE_FILE) build
 
