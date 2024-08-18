@@ -10,11 +10,18 @@ services:
       - mariadb:/var/lib/mysql
     networks:
       - inception
+    #healthcheck:
+     # test: ["CMD-SHELL", "pg_isready"]
+      #interval: 10s
+      #timeout: 5s
+      #retries: 5
     restart: always
   
   wordpress:
     depends_on:
       - mariadb
+       #mariadb:
+        #condition: service_healthy
     build:
       context: ./requirements/wordpress
       dockerfile: Dockerfile
@@ -35,7 +42,7 @@ services:
       dockerfile: Dockerfile
     container_name: nginx
     ports:
-      - "8000:80"
+      - "8000:80" # may remove
       - "443:443"
     volumes:
       - wordpress:/var/www/html
