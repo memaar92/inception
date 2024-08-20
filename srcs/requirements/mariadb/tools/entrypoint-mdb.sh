@@ -2,8 +2,7 @@
 
 mkdir -p /var/run/mysqld
 chown -R mysql:mysql /var/run/mysqld
-# chmod -R 777 /var/run/mysqld
-chmod -R 777 /var/lib/mysql # to be able to delete the database later on for testing purposes
+chmod -R 777 /var/lib/mysql # to be able to delete mariadb data later on for testing purposes
 
 mariadb-install-db --user=mysql --datadir=/var/lib/mysql
 

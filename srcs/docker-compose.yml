@@ -41,7 +41,6 @@ services:
       dockerfile: Dockerfile
     container_name: nginx
     ports:
-      - "8000:80" # may remove
       - "443:443"
     volumes:
       - wordpress:/var/www/html
