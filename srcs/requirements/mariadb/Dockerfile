@@ -10,4 +10,4 @@ EXPOSE 3306
 
 ENTRYPOINT ["entrypoint-mdb.sh"]
 
-CMD ["mysqld_safe"]
+CMD ["mariadbd"]
