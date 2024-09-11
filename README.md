@@ -1,1 +1,3 @@
 # inception
+
+The project is part of the 42 School curriculum, designed to introduce students to system administration, containerization, and Docker. The main objective of the project is to set up a small-scale virtualization infrastructure using Docker and Docker Compose to run multiple services (web server, database, and WordPress) in isolated containers. Students must configure the containers to communicate with each other, implement security best practices (e.g., SSL/TLS encryption), and ensure data persistence using volumes. This project helps develop a strong foundation in DevOps, automation, and system orchestration.
